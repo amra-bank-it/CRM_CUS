@@ -1,0 +1,48 @@
+﻿@model CRM_CUS.Models.TypeDocument
+
+@{
+    ViewData["Title"] = "Подробно";
+}
+
+<h1>Подробно</h1>
+
+<div>
+    <h4>Тип паспорта</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Код документа")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CodeDocument)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Тип документа")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CountryDocument)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Код страны")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CodeCountryDocument)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Тип паспорта RU")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionRu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Тип паспорта EN")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DecriptionEn)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Изменить</a> |
+    <a asp-action="Index">Вернуться</a>
+</div>

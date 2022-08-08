@@ -1,0 +1,54 @@
+﻿@model CRM_CUS.Models.AccountDeposit
+
+@{
+    ViewData["Title"] = "Подробно";
+}
+
+<h1>Подробно</h1>
+
+<div>
+    <h4>Счета(Пополнение)</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Счет")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Account)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Маска счета")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AccountMasked)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Банк")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Bank)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Доступность")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Available)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Каналы(Пополнение)")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ChannelDeposit.DescriptionRu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Клиент")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Person.FullName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Изменить</a> |
+    <a asp-action="Index">Вернуться</a>
+</div>

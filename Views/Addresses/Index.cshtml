@@ -1,0 +1,89 @@
+﻿@model IEnumerable<CRM_CUS.Models.Address>
+
+@{
+    ViewData["Title"] = "Адреса";
+}
+
+<h1>Адреса</h1>
+
+<p>
+    <a asp-action="Create">Создать</a>
+                <div class="searchbox">        
+        <form class="form-wrapper" method="post" asp-area="" asp-controller="Addresses" asp-action="Find">
+                <input type="search" name="filterAddress" placeholder="Поиск по стране,региону и клиенту">
+                <input type="submit" value="Найти">
+        </form>
+</div>
+</p>
+<table class="table" style="color: #ffff">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Страна")
+            </th>
+            <th>
+                @Html.DisplayName("Регион")
+            </th>
+            <th>
+                @Html.DisplayName("Город")
+            </th>
+            <th>
+                @Html.DisplayName("Улица")
+            </th>
+            <th>
+                @Html.DisplayName("Дом")
+            </th>
+            <th>
+                @Html.DisplayName("Строение")
+            </th>
+            <th>
+                @Html.DisplayName("Квартира")
+            </th>
+            <th>
+                @Html.DisplayName("Тип адреса")
+            </th>
+            <th>
+                @Html.DisplayName("Клиент")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Region)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Street)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.House)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Building)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apartment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressType.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Person.FullName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Подробно</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

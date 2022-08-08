@@ -1,0 +1,54 @@
+﻿@model CRM_CUS.Models.ChannelLimit
+
+@{
+    ViewData["Title"] = "Подробно";
+}
+
+<h1>Подробно</h1>
+
+<div>
+    <h4>Каналы(Лимиты)</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Ежедневная сумма транзакции")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TrnDailyAmount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Ежемесячная сумма транзакции")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TrnMonthlyAmount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Ежедневный счет транзакции")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TrnDailyCount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Ежемесячный счет транзакции")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TrnMonthlyCount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Описание RU")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionRu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Тип транзакции")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TransactionType.Description)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Изменить</a> |
+    <a asp-action="Index">Вернуться</a>
+</div>

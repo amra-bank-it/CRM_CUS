@@ -1,0 +1,59 @@
+﻿@model CRM_CUS.Models.ChannelLimit
+
+@{
+    ViewData["Title"] = "Изменить";
+}
+
+<h1>Изменить</h1>
+
+<h4>Каналы(Лимиты)</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="TrnDailyAmount" class="control-label"></label>
+                <input asp-for="TrnDailyAmount" class="form-control" />
+                <span asp-validation-for="TrnDailyAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrnMonthlyAmount" class="control-label"></label>
+                <input asp-for="TrnMonthlyAmount" class="form-control" />
+                <span asp-validation-for="TrnMonthlyAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrnDailyCount" class="control-label"></label>
+                <input asp-for="TrnDailyCount" class="form-control" />
+                <span asp-validation-for="TrnDailyCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrnMonthlyCount" class="control-label"></label>
+                <input asp-for="TrnMonthlyCount" class="form-control" />
+                <span asp-validation-for="TrnMonthlyCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescriptionRu" class="control-label"></label>
+                <input asp-for="DescriptionRu" class="form-control" />
+                <span asp-validation-for="DescriptionRu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransactionTypeId" class="control-label"></label>
+                <select asp-for="TransactionTypeId" class="form-control" asp-items="ViewBag.TransactionTypeId"></select>
+                <span asp-validation-for="TransactionTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Вернуться</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

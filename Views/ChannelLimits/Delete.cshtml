@@ -1,0 +1,57 @@
+﻿@model CRM_CUS.Models.ChannelLimit
+
+@{
+    ViewData["Title"] = "Удалить";
+}
+
+<h1>Удалить</h1>
+
+<h3>Вы уверены что хотите удалить?</h3>
+<div>
+    <h4>Каналы(Лимиты)</h4>
+    <hr />
+    <dl class="row">
+                <dt class = "col-sm-2">
+            @Html.DisplayName("Ежедневная сумма транзакции")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TrnDailyAmount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Ежемесячная сумма транзакции")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TrnMonthlyAmount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Ежедневный счет транзакции")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TrnDailyCount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Ежемесячный счет транзакции")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TrnMonthlyCount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Описание RU")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionRu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Тип транзакции")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TransactionType.Description)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-action="Index">Вернуться</a>
+    </form>
+</div>

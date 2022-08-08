@@ -1,0 +1,77 @@
+﻿@model IEnumerable<CRM_CUS.Models.Passport>
+
+@{
+    ViewData["Title"] = "Паспорта";
+}
+
+<h1>Паспорта</h1>
+
+<p>
+    <a asp-action="Create">Создать</a>
+        <div class="searchbox">        
+        <form class="form-wrapper" method="post" asp-area="" asp-controller="Passports" asp-action="Find">
+                <input type="search" name="filterPassport" placeholder="Поиск по серии и номеру">
+                <input type="submit" value="Найти">
+        </form>
+</div>
+</p>
+<table class="table" style="color: #ffff">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Серия")
+            </th>
+            <th>
+                @Html.DisplayName("Номер")
+            </th>
+            <th>
+                @Html.DisplayName("Дата выдачи")
+            </th>
+            <th>
+                @Html.DisplayName("Кем выдан")
+            </th>
+            <th>
+                @Html.DisplayName("Код подразделения")
+            </th>
+            <th>
+                @Html.DisplayName("ФИО")
+            </th>
+            <th>
+                @Html.DisplayName("Тип паспорта")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Serial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdWhom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdWhomCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Person.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeDocument.DescriptionRu)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Подробно</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

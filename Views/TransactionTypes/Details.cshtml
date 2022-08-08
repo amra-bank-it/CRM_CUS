@@ -1,0 +1,30 @@
+﻿@model CRM_CUS.Models.TransactionType
+
+@{
+    ViewData["Title"] = "Подробно";
+}
+
+<h1>Подробно</h1>
+
+<div>
+    <h4>Тип транзакции</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Тип имени")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NameType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Описание")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Изменить</a> |
+    <a asp-action="Index">Вернуться</a>
+</div>

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<CRM_CUS.Models.ChannelLimit>
+
+@{
+    ViewData["Title"] = "Каналы(Лимиты)";
+}
+
+<h1>Каналы(Лимиты)</h1>
+
+<p>
+    <a asp-action="Create">Создать</a>
+ <div class="searchbox">        
+        <form class="form-wrapper" method="post" asp-area="" asp-controller="ChannelLimits" asp-action="Find">
+                <input type="search" name="filterChannelLimit" placeholder="Поиск по ежедневному счету транзакции">
+                <input type="submit" value="Найти">
+        </form>
+</div>
+</p>
+<table class="table" style="color: #ffff">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Ежедневная сумма транзакции")
+            </th>
+            <th>
+                @Html.DisplayName("Ежемесячная сумма транзакции")
+            </th>
+            <th>
+                @Html.DisplayName("Ежедневный счет транзакции")
+            </th>
+            <th>
+                @Html.DisplayName("Ежемесячный счет транзакции")
+            </th>
+            <th>
+                @Html.DisplayName("Описание RU")
+            </th>
+            <th>
+                @Html.DisplayName("Тип транзакции")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrnDailyAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrnMonthlyAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrnDailyCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrnMonthlyCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescriptionRu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionType.Description)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Подробно</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

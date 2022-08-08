@@ -1,0 +1,66 @@
+﻿@model IEnumerable<CRM_CUS.Models.ChannelDeposit>
+
+@{
+    ViewData["Title"] = "Каналы пополнение";
+}
+
+<h1>Каналы(Пополнение)</h1>
+
+<p>
+    <a asp-action="Create">Создать</a>
+                            <div class="searchbox">        
+        <form class="form-wrapper" method="post" asp-area="" asp-controller="ChannelDeposits" asp-action="Find">
+                <input type="search" name="filterChannelDeposit" placeholder="Поиск по имени и группе">
+                <input type="submit" value="Найти">
+        </form>
+</div>
+</p>
+<table class="table" style="color: #ffff">
+    <thead>
+        <tr>
+            <th>
+
+                @Html.DisplayName("Имя")
+            </th>
+            <th>
+                @Html.DisplayName("Группа")
+            </th>
+            <th>
+                @Html.DisplayName("Тип перевода RU")
+            </th>
+            <th>
+                @Html.DisplayName("Тип перевода EN")
+            </th>
+            <th>
+                @Html.DisplayName("Каналы(Лимиты)")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChannelName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescriptionRu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescriptionEn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChannelLimit.DescriptionRu)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Подробно</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

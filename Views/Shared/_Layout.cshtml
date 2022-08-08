@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CRM_Управление Клиентами Онлайн</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CRM_CUS.styles.css" asp-append-version="true" />
+    <link href="~/Content/Site.css" rel="stylesheet" asp-append-version="true"/>
+    <link rel="stylesheet" href=""/>
+</head>
+<body>
+   <style>
+    body {
+    background: #162C69; /* Цвет фона */
+    color: #ffff; /* Цвет текста */
+   }
+   #example2 {
+  box-sizing: border-box;
+  border: 2px solid #C0C0C0;
+  padding: 10px;
+  border-radius: 30px;
+  white-space:nowrap;
+  }
+  .one { /* Внешний вид кнопки */
+    color: #fff; /* Цвет текста */
+    background: #162C69 ; /* Фоновый цвет */
+    padding: 10px; /* Минимальный отступ текста от границ кнопки. Определяет размер кнопки */
+    font-size: 16px; /* Размер текста */
+    border-radius: 5px; /* Радиус закругления уголков */
+    box-shadow:  0 0.625em #4C55CF; /* Тень */
+    width: 100%;
+    height: 100%;
+}
+.one:hover {
+  background: #ffe9e9;
+  transform: translate(0, 0.25em);/* Преображение при наведении */
+  background-image: radial-gradient(ellipse farthest-corner at 50% 50%, #162C69,#fff); /* Радиальный градиент, переход цвета от центра к краям */
+}
+  </style>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-#333 border-bottom">
+            <div class="container-fluid">                
+                 <a class="navbar-brand ; one" asp-area="" asp-controller="Home" asp-action="Index" style="color: #ffff" id="example2">CRM_Управление Клиентами</a>
+                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-white ; one" asp-area="" asp-controller="Home" asp-action="Index" id="example2">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white ; one" asp-area="" asp-controller="People" asp-action="Index" id="example2">Клиенты</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white ; one" asp-area="" asp-controller="Passports" asp-action="Index" id="example2">Паспорта</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white ; one" asp-area="" asp-controller="TypeDocuments" asp-action="Index" id="example2">Типы Паспортов</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white ; one" asp-area="" asp-controller="Phones" asp-action="Index" id="example2">Телефоны</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white ; one" asp-area="" asp-controller="Addresses" asp-action="Index" id="example2">Адреса</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white ; one" asp-area="" asp-controller="AddressTypes" asp-action="Index" id="example2">Типы Адресов</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white ; one" asp-area="" asp-controller="AccountDeposits" asp-action="Index" id="example2">Счета(Пополнение)</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white ; one" asp-area="" asp-controller="ChannelDeposits" asp-action="Index" id="example2">Каналы(Пополнение)</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white ; one" asp-area="" asp-controller="ChannelLimits" asp-action="Index" id="example2">Каналы(Лимиты)</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white ; one" asp-area="" asp-controller="Transactions" asp-action="Index" id="example2">Транзакции</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white ; one" asp-area="" asp-controller="TransactionTypes" asp-action="Index" id="example2">Типы Транзакций</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link text-white ; one" asp-area="" asp-controller="Isocurrencies" asp-action="Index" id="example2">Валюты</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - CRM_CUS - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

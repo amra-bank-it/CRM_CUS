@@ -1,0 +1,44 @@
+﻿@model CRM_CUS.Models.Isocurrency
+
+@{
+    ViewData["Title"] = "Изменить";
+}
+
+<h1>Изменить</h1>
+
+<h4>Валюты</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="NameCurrency" class="control-label"></label>
+                <input asp-for="NameCurrency" class="form-control" />
+                <span asp-validation-for="NameCurrency" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CodeCurrency" class="control-label"></label>
+                <input asp-for="CodeCurrency" class="form-control" />
+                <span asp-validation-for="CodeCurrency" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescriptionRu" class="control-label"></label>
+                <input asp-for="DescriptionRu" class="form-control" />
+                <span asp-validation-for="DescriptionRu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Вернуться</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,59 @@
+﻿@model CRM_CUS.Models.AccountDeposit
+
+@{
+    ViewData["Title"] = "Изменить";
+}
+
+<h1>Изменить</h1>
+
+<h4>Счета(Пополнение)</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="PersonId" class="control-label"></label>
+                <select asp-for="PersonId" class="form-control" asp-items="ViewBag.PersonId"></select>
+                <span asp-validation-for="PersonId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Account" class="control-label"></label>
+                <input asp-for="Account" class="form-control" />
+                <span asp-validation-for="Account" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountMasked" class="control-label"></label>
+                <input asp-for="AccountMasked" class="form-control" />
+                <span asp-validation-for="AccountMasked" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bank" class="control-label"></label>
+                <input asp-for="Bank" class="form-control" />
+                <span asp-validation-for="Bank" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChannelDepositId" class="control-label"></label>
+                <select asp-for="ChannelDepositId" class="form-control" asp-items="ViewBag.ChannelDepositId"></select>
+                <span asp-validation-for="ChannelDepositId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Available" class="control-label"></label>
+                <input asp-for="Available" class="form-control" />
+                <span asp-validation-for="Available" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Вернуться</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

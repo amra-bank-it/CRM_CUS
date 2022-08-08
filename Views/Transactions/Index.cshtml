@@ -1,0 +1,65 @@
+﻿@model IEnumerable<CRM_CUS.Models.Transaction>
+
+@{
+    ViewData["Title"] = "Транзакции";
+}
+
+<h1>Транзакции</h1>
+
+<p>
+    <a asp-action="Create">Создать</a>
+     <div class="searchbox">        
+        <form class="form-wrapper" method="post" asp-area="" asp-controller="Transactions" asp-action="Find">
+                <input type="search" name="filterTransaction" placeholder="Поиск по сумме и валюте">
+                <input type="submit" value="Найти">
+        </form>
+</div>
+</p>
+<table class="table" style="color: #ffff">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Время сервера")
+            </th>
+            <th>
+                @Html.DisplayName("Сумма")
+            </th>
+            <th>
+                @Html.DisplayName("Валюта")
+            </th>
+            <th>
+                @Html.DisplayName("Клиент")
+            </th>
+            <th>
+                @Html.DisplayName("Описание")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServerTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Currency.NameCurrency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Person.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionType.Description)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Подробно</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

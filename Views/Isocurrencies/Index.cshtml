@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CRM_CUS.Models.Isocurrency>
+
+@{
+    ViewData["Title"] = "Валюты";
+}
+
+<h1>Валюты</h1>
+
+<p>
+    <a asp-action="Create">Создать</a>
+     <div class="searchbox">        
+        <form class="form-wrapper" method="post" asp-area="" asp-controller="Isocurrencies" asp-action="Find">
+                <input type="search" name="filterIsocurrency" placeholder="Поиск по валюте и коду">
+                <input type="submit" value="Найти">
+        </form>
+</div>
+</p>
+<table class="table" style="color: #ffff">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Валюта")
+            </th>
+            <th>
+                @Html.DisplayName("Код валюты")
+            </th>
+            <th>
+                @Html.DisplayName("Тип валюты")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameCurrency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeCurrency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescriptionRu)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Подробно</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

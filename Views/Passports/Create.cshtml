@@ -1,0 +1,61 @@
+﻿@model CRM_CUS.Models.Passport
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Создание</h1>
+
+<h4>Паспорт</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PersonId" class="control-label"></label>
+                <select asp-for="PersonId" class ="form-control" asp-items="ViewBag.PersonId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeDocumentId" class="control-label"></label>
+                <select asp-for="TypeDocumentId" class ="form-control" asp-items="ViewBag.TypeDocumentId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Serial" class="control-label"></label>
+                <input asp-for="Serial" class="form-control" />
+                <span asp-validation-for="Serial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Number" class="control-label"></label>
+                <input asp-for="Number" class="form-control" />
+                <span asp-validation-for="Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdDate" class="control-label"></label>
+                <input asp-for="IdDate" class="form-control" />
+                <span asp-validation-for="IdDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdWhom" class="control-label"></label>
+                <input asp-for="IdWhom" class="form-control" />
+                <span asp-validation-for="IdWhom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdWhomCode" class="control-label"></label>
+                <input asp-for="IdWhomCode" class="form-control" />
+                <span asp-validation-for="IdWhomCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Вернуться</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

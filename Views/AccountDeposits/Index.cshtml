@@ -1,0 +1,71 @@
+﻿@model IEnumerable<CRM_CUS.Models.AccountDeposit>
+
+@{
+    ViewData["Title"] = "Счета(Пополнение)";
+}
+
+<h1>Счета(Пополнение)</h1>
+
+<p>
+    <a asp-action="Create">Создать</a>
+                        <div class="searchbox">        
+        <form class="form-wrapper" method="post" asp-area="" asp-controller="AccountDeposits" asp-action="Find">
+                <input type="search" name="filterAccDeposit" placeholder="Поиск по счету,клиенту и банку">
+                <input type="submit" value="Найти">
+        </form>
+</div>
+</p>
+<table class="table" style="color: #ffff">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Счет")
+            </th>
+            <th>
+                @Html.DisplayName("Маска счета")
+            </th>
+            <th>
+                @Html.DisplayName("Банк")
+            </th>
+            <th>
+                @Html.DisplayName("Доступность")
+            </th>
+            <th>
+                @Html.DisplayName("Каналы(Пополнение)")
+            </th>
+            <th>
+                @Html.DisplayName("Клиент")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Account)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountMasked)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bank)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Available)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChannelDeposit.DescriptionRu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Person.FullName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Подробно</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

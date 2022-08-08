@@ -1,0 +1,36 @@
+﻿@model CRM_CUS.Models.Isocurrency
+
+@{
+    ViewData["Title"] = "Подробно";
+}
+
+<h1>Подробно</h1>
+
+<div>
+    <h4>Валюты</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+                @Html.DisplayName("Валюта")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NameCurrency)
+        </dd>
+        <dt class = "col-sm-2">
+                @Html.DisplayName("Код валюты")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CodeCurrency)
+        </dd>
+        <dt class = "col-sm-2">
+                @Html.DisplayName("Тип валюты")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionRu)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Изменить</a> |
+    <a asp-action="Index">Вернуться</a>
+</div>

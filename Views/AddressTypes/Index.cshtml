@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CRM_CUS.Models.AddressType>
+
+@{
+    ViewData["Title"] = "Типы адресов";
+}
+
+<h1>Типы адресов</h1>
+
+<p>
+    <a asp-action="Create">Создать</a>
+                    <div class="searchbox">        
+        <form class="form-wrapper" method="post" asp-area="" asp-controller="AddressTypes" asp-action="Find">
+                <input type="search" name="filterAddressType" placeholder="Поиск по типу имени">
+                <input type="submit" value="Найти">
+        </form>
+</div>
+</p>
+<table class="table" style="color: #ffff">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Тип имени")
+            </th>
+            <th>
+                @Html.DisplayName("Описание")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Подробно</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

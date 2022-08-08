@@ -1,0 +1,65 @@
+﻿@model IEnumerable<CRM_CUS.Models.TypeDocument>
+
+@{
+    ViewData["Title"] = "Типы паспортов";
+}
+
+<h1>Типы паспортов</h1>
+
+<p>
+    <a asp-action="Create">Создать</a>
+            <div class="searchbox">        
+        <form class="form-wrapper" method="post" asp-area="" asp-controller="TypeDocuments" asp-action="Find">
+                <input type="search" name="filterDocuments" placeholder="Поиск по коду документа и страны">
+                <input type="submit" value="Найти">
+        </form>
+</div>
+</p>
+<table class="table" style="color: #ffff">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Код документа")
+            </th>
+            <th>
+                @Html.DisplayName("Тип документа")
+            </th>
+            <th>
+                @Html.DisplayName("Код страны")
+            </th>
+            <th>
+                @Html.DisplayName("Тип паспорта RU")
+            </th>
+            <th>
+                @Html.DisplayName("Тип паспорта EN")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeDocument)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountryDocument)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeCountryDocument)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescriptionRu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecriptionEn)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Подробно</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

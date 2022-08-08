@@ -1,0 +1,51 @@
+﻿@model CRM_CUS.Models.TypeDocument
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TypeDocument</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CodeDocument)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CodeDocument)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CountryDocument)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CountryDocument)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CodeCountryDocument)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CodeCountryDocument)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionRu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionRu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DecriptionEn)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DecriptionEn)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

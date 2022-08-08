@@ -1,0 +1,75 @@
+﻿@model CRM_CUS.Models.Address
+
+@{
+    ViewData["Title"] = "Удалить";
+}
+
+<h1>Удалить</h1>
+
+<h3>Вы уверены что хотите удалить?</h3>
+<div>
+    <h4>Адрес</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Страна")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Регион")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Region)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Город")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.City)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Улица")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Street)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Дом")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.House)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Строение")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Building)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Квартира")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Apartment)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Тип адреса")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AddressType.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Клиент")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Person.FullName)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-action="Index">Вернуться</a>
+    </form>
+</div>
